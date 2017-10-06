@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this._players = this.playersService.all();
   }
 
-  onTabSelect(event: MdTabChangeEvent) {
+  onTabSelect() {
     this._game = this.gamesService.all().get(1);
   }
 }

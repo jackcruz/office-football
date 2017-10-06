@@ -22,6 +22,7 @@ export class GameComponent {
   selectedTeam: number = 0;
   teamA: Array<Player> = [];
   teamB: Array<Player> = [];
+  winnerTeam: number;
   
   @Input()
   newGame: boolean = true;
@@ -91,6 +92,7 @@ export class GameComponent {
   }
 
   complete() {
+    // TODO: update players stats
     
   }
 
@@ -104,6 +106,10 @@ export class GameComponent {
 
   shouldDisableSaveButton() {
     return !this.validateTeams();
+  }
+
+  shouldDisableCompleteButton() {
+    return !this.winnerTeam;
   }
 
   validateTeams() {

@@ -1,5 +1,5 @@
 
-<md-tab-group (selectChange)="onTabSelect(event)">
+<md-tab-group (selectChange)="onTabSelect()">
   <md-tab label="Players">
     <div style="display:flex; flex-wrap: wrap;">
       <player-card *ngFor="let player of players" [player]="player"></player-card>
