@@ -1,6 +1,4 @@
-# angular-material2-issue
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+# Office Football
 
 ## Development server
 
