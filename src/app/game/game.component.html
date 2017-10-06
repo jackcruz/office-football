@@ -1,0 +1,40 @@
+<div class="game-header">
+  {{newGame ? 'Create a new Game' : 'Edit the Game'}}
+</div>
+<md-card>
+  <form *ngIf="newGame">
+    <md-form-field>
+      <input type="text" placeholder="Player" aria-label="Player" mdInput [formControl]="selectedPlayer" [mdAutocomplete]="auto">
+      <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn">
+        <md-option *ngFor="let player of filteredPlayers | async" [value]="player">
+          {{ player.name }}
+        </md-option>
+      </md-autocomplete>
+    </md-form-field>
+    <div class="team-radio-group">
+      <md-radio-group [(ngModel)]="selectedTeam" name="team">
+        <md-radio-button value="0" [disabled]="shouldDisableTeam(teamA)">Team A</md-radio-button>
+        <md-radio-button value="1" [disabled]="shouldDisableTeam(teamB)">Team B</md-radio-button>
+      </md-radio-group>
+    </div>
+  </form>
+  <div>
+    <button *ngIf="newGame" md-raised-button color="accent" (click)="invite()" [disabled]="shouldDisableInviteButton()">
+        <md-icon class="md-24">assignment_ind</md-icon>
+        Invite
+    </button>
+    <button md-raised-button color="accent" (click)="save()" [disabled]="shouldDisableSaveButton()">
+        <md-icon class="md-24">save</md-icon>
+        Save Game
+    </button>
+  </div>
+</md-card>
+
+<md-tab-group [selectedIndex]="selectedTeam">
+  <md-tab label="TEAM A">
+    <player-card *ngFor="let player of teamA" [player]="player"></player-card>
+  </md-tab>
+  <md-tab label="TEAM B">
+    <player-card *ngFor="let player of teamB" [player]="player"></player-card>
+  </md-tab>
+</md-tab-group>

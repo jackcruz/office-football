@@ -1,0 +1,18 @@
+<md-card class="player-card">
+  <md-card-header>
+    <img md-card-avatar [src]="player.photo !== '' ? player.photo : 'assets/images/no-photo.png'" (click)="toggleDetailView()">
+    <md-card-title>{{player.name | capitalize}}</md-card-title>
+    <md-card-subtitle>{{player.level | capitalize}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content *ngIf="detailedView">
+    <p>
+      Games Played: {{player.gamesPlayed !== '' ? player.gamesPlayed : '0'}}
+    </p>
+    <p>
+      Games Won: {{player.gamesWon ? player.gamesWon : '0'}}
+    </p>
+    <p>
+      Goals Scored: {{player.goalsScored !== '' ? player.goalsScored : '0'}}
+    </p>
+  </md-card-content>
+</md-card>

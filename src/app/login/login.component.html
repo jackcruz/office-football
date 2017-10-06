@@ -1,0 +1,15 @@
+<md-card>
+  <form class="login-form">
+    <div class="col">
+      <md-form-field class="full-width">
+        <input [(ngModel)]="user.userName" name="userName" mdInput placeholder="User">
+      </md-form-field>
+      <md-form-field class="full-width">
+        <input [(ngModel)]="user.password" name="password" type="password" mdInput placeholder="Password">
+      </md-form-field>
+    </div>
+    <div class="row">
+        <button md-raised-button color="primary" (click)="login()">Login</button>        
+    </div>
+  </form>
+</md-card>

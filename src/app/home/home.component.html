@@ -1,0 +1,11 @@
+
+<md-tab-group (selectChange)="onTabSelect(event)">
+  <md-tab label="Players">
+    <div style="display:flex; flex-wrap: wrap;">
+      <player-card *ngFor="let player of players" [player]="player"></player-card>
+    </div>
+  </md-tab>
+  <md-tab label="Game">
+    <game [gameToEdit]="game" [newGame]="false"></game>
+  </md-tab>
+</md-tab-group>
